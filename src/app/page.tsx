@@ -3,12 +3,12 @@
 import LoadingBubble from "./components/LoadingBubble";
 import PromptSuggesstionRow from "./components/PromptSuggesstionRow";
 import Bubble from "./components/Bubble";
-import useChat from
+import { useChat } from '@ai-sdk/react';
 
 const Home = () => {
   const {
     append,
-    isLoading,
+    status,
     messages,
     input,
     handleInputChange,
@@ -21,7 +21,7 @@ const Home = () => {
     const msg = {
       id: crypto.randomUUID(),
       content: promptText,
-      role: "user",
+      role: "user" as const,
     };
 
     append(msg);
@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <main>
-      <section>
+      <section className={noMessages ? "" : "populated"}>
         {noMessages ? (
           <>
             <p className="starter-text">
@@ -47,7 +47,7 @@ const Home = () => {
               <Bubble key={`message-${index}`} message={msg} />
             ))}
 
-            {isLoading && <LoadingBubble />}
+            {status === "streaming" && <LoadingBubble />}
           </>
         )}
       </section>

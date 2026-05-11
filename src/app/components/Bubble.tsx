@@ -1,11 +1,19 @@
-import React from 'react'
+import { Message } from "@ai-sdk/react";
 
-const Bubble = ({ message }) => {
+const Bubble = ({ message }: { message: Message }) => {
+  const { content, role, parts } = message;
 
-  const { content, role } = message;
+  console.log("content:", content);
+  console.log("parts:", parts);
+
+  const text = parts
+    ?.filter((p) => p.type === "text")
+    .map((p) => p.text)
+    .join("") || content;
+
   return (
-    <div className={`${role} bubble`}>Bubble</div>
-  )
-}
+    <div className={`${role} bubble`}>{text}</div>
+  );
+};
 
 export default Bubble

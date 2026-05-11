@@ -86,7 +86,7 @@ input:focus {
   width: 100%
 }
 
-.prompt-suggession-button {
+.prompt-suggestion-button {
   margin: 8px;
   padding: 8px;
   font-size: 15px;
@@ -101,10 +101,10 @@ input:focus {
   margin: 10px;
   width: 60px;
   aspect-ratio: 4;
-  background: no-repeat radial-gradiant(circle closet-side, #383838 90%, #0000) 0 50%,
-    no-repeat radial-gradiant(circle closet-side, #383838 90%, #0000) 50% 50%,
-    no-repeat radial-gradiant(circle closet-side, #383838 90%, #0000) 100% 50%;
-  background-size: calc(100%3) 100%;
+  background: no-repeat radial-gradient(circle closest-side, #383838 90%, #0000) 0 50%,
+    no-repeat radial-gradient(circle closest-side, #383838 90%, #0000) 50% 50%,
+    no-repeat radial-gradient(circle closest-side, #383838 90%, #0000) 100% 50%;
+  background-size: calc(100%/3) 100%;
   animation: loading 1s infinite linear
 }
 
